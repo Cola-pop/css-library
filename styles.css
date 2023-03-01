@@ -1,0 +1,180 @@
+/* basic utilities */
+:root {
+  --clr-dark: #0f172a;
+  --clr-light: #f1f5f9;
+  --clr-accent: #ec2731;
+}
+
+.container {
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  margin: 25px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+}
+
+/* hover transition for outlined button */
+.btn-outlined {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0.5em 1em;
+  color: var(--clr-accent);
+  background-color: var(--clr-light);
+  border: 10px solid var(--clr-accent);
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.btn-outlined:hover {
+  transform: translateY(-10px);
+  background-color: var(--clr-accent);
+  color: var(--clr-light);
+}
+
+/* animation utilities */
+.animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate.animate--infinite {
+  animation-iteration-count: infinite;
+}
+
+.animate.animate--alternate {
+  animation-direction: alternate;
+}
+
+.animate.animate--delay-1s {
+  animation-delay: 1s;
+}
+
+.animate.animate--very-fast {
+  animation-duration: 0.3s;
+}
+
+.animate.animate--fast {
+  animation-duration: 0.6s;
+}
+
+.animate.animate--slow {
+  animation-duration: 1.2s;
+}
+
+/* slideInLeft animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-300px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+  animation-timing-function: ease-in;
+}
+
+/* slideInRight animation */
+@keyframes slideInRight {
+  from {
+    transform: translateX(300px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+  animation-timing-function: ease-in;
+}
+
+/* rotate animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-timing-function: linear;
+  /* transform-origin: top right; */
+}
+
+/* bounce animation */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-30px) scale(0.9);
+  }
+
+  60% {
+    transform: translateY(-15px) scale(0.95);
+  }
+}
+
+.bounce {
+  animation-name: bounce;
+}
+
+/* daffy animation */
+@keyframes daffy {
+  20%,
+  50%,
+  70%,
+  90% {
+    transform: translate(0);
+  }
+
+  0% {
+    transform: translate(-30px, -70px) scale(0.8);
+  }
+
+  40% {
+    transform: translate(-55px, -30px) scale(0.8);
+  }
+
+  60% {
+    transform: translate(0, -60px);
+  }
+
+  80% {
+    transform: translate(45px, -30px) scale(0.8);
+  }
+
+  100% {
+    transform: translate(-30px, -70px) scale(0.8);
+  }
+}
+
+.daffy {
+  animation-name: daffy;
+}
