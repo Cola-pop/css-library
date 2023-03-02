@@ -17,7 +17,9 @@ A bunch of css classes and animations
 
 ## Components
 
+- `.btn` button with hover transition
 - `.btn-outlined` outlined button with hover transition
+- `.custom-cursor` cursor on window with blend
 
 ## Animation Utilities
 

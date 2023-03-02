@@ -20,10 +20,17 @@
         <div class="column">
           <button
             class="btn-outlined animate daffy animate--slow animate--infinite"
-            onclick="matteo()"
           >
             Daffy Button
           </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <button class="btn">Button</button>
+        </div>
+        <div class="column">
+          <button class="btn">Button</button>
         </div>
       </div>
       <div class="row">
@@ -44,11 +51,50 @@
         </div>
       </div>
     </div>
+    <div class="custom-cursor"></div>
   </body>
-
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
   <script>
-    function matteo() {
-      alert('yo');
-    }
+    document.addEventListener('DOMContentLoaded', function (event) {
+      let cursor = document.querySelector('.custom-cursor');
+      let links = document.querySelectorAll('button');
+      let initCursor = false;
+
+      for (let i = 0; i < links.length; i++) {
+        let selfLink = links[i];
+
+        selfLink.addEventListener('mouseover', function () {
+          cursor.classList.add('custom-cursor--link');
+        });
+        selfLink.addEventListener('mouseout', function () {
+          cursor.classList.remove('custom-cursor--link');
+        });
+      }
+
+      window.onmousemove = function (e) {
+        let mouseX = e.clientX;
+        let mouseY = e.clientY;
+
+        if (!initCursor) {
+          // cursor.style.opacity = 1;
+          TweenLite.to(cursor, 0.3, {
+            opacity: 1,
+          });
+          initCursor = true;
+        }
+
+        TweenLite.to(cursor, 0, {
+          top: mouseY + 'px',
+          left: mouseX + 'px',
+        });
+      };
+
+      window.onmouseout = function (e) {
+        TweenLite.to(cursor, 0.3, {
+          opacity: 0,
+        });
+        initCursor = false;
+      };
+    });
   </script>
 </html>
