@@ -1,6 +1,6 @@
 # CSS Library
 
-A bunch of css classes and animations
+A bunch of css classes and animations in a Svelte app
 
 # Table of Contents
 
